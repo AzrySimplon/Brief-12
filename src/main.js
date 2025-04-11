@@ -9,6 +9,7 @@ const themeButton = document.getElementById("theme"); // Button to change theme
 //manual variables
 const url = "https://www.themealdb.com/api/json/v1/1/"; // Base URL for the API
 const mealsList = []; // Array to store Meal objects
+const ingredientNbr =20;
 
 //theme
 let actualTheme = 0;
@@ -171,10 +172,10 @@ function renderSelectedMeal(mealId, article) {
             ingredientsList.textContent = 'Ingredients:'; // Add a title for the list
 
             // Extract ingredients and their measurements from meal data
-            for (let i = 1; i <= 20; i++) {
+            for (let i = 1; i <= ingredientNbr; i++) {
                 const ingredient = mealData[`strIngredient${i}`];
                 const measure = mealData[`strMeasure${i}`];
-                if (ingredient && ingredient.trim() !== '') {
+                if (ingredient !== '') {
                     // Create a list item for each ingredient
                     const listItem = document.createElement('li');
                     listItem.textContent = `${ingredient} - ${measure}`; // Combine ingredient and measure
