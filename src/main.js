@@ -52,7 +52,6 @@ function changeTheme() {
     else{
         actualTheme ++;
     }
-    console.log(actualTheme);
 
     //edit color of each variable
     for(let themeName in themes){
