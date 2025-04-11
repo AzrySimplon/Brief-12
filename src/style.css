@@ -1,0 +1,319 @@
+:root {
+    --color-green: #4CAF50;
+    --color-orange: #FF9800;
+    --color-white: #FFFFFF;
+    --color-gray: #9E9E9E;
+    --color-dark-gray: #616161; /* Dark gray for neutral accents */
+    --bg-light-green: rgba(76, 175, 80, 0.13);
+    --bg-light-orange: rgba(255, 152, 0, 0.1);
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --accessibility-border-color: transparent;
+    --tittle-bg-color: #FF9800;
+}
+
+/* Add responsiveness */
+@media (max-width: 768px) {
+
+    header>img{
+        width: 80%;
+
+    }
+
+    body{
+        width: 95%;
+        padding: 2.5%;
+    }
+
+    #mealsDiv {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items for better aesthetics */
+        gap: 1.5em; /* Slightly increase gap for clarity */
+        justify-content: center;
+    }
+
+    .meal {
+        width: 100%; /* Full width for better visibility */
+        max-width: 500px; /* Limit max width for consistency */
+        flex: 0 0 auto; /* Prevent unwanted shrinking or growing */
+        font-size: 0.9em;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.2em; /* Adjust font size for smaller screens */
+        text-align: center; /* Ensure consistent alignment */
+        margin: 0.5em 0; /* Add breathing room above and below headings */
+        word-wrap: break-word; /* Handle long words gracefully */
+    }
+
+    header>button{
+        font-size: 0.8em;
+    }
+}
+
+@media (min-width: 768px) {
+    body{
+        width: 80%;
+        padding: 0 2em; /* Add padding to soften layout edges */
+    }
+
+    .meal{
+        flex: 0 1 calc(50% - 1em); /* Dynamically adjust width */
+    }
+
+    #mealsDiv {
+        justify-content: space-between;
+    }
+
+
+}
+
+
+/* Typography */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--bg-light-green);
+    line-height: 1.8; /* Slightly increased line height for better readability */
+    margin: 0 auto;
+
+    color: #1a1a1a; /* Neutral text color */
+}
+
+header{
+    text-align: center;
+    padding: 1em;
+    background-image: url('../public/im2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--color-orange);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+
+
+    &>*{
+        border-radius: 10px;
+    }
+    &>button{
+        margin:0;
+        align-self: baseline;
+    }
+}
+
+
+
+p{
+    text-align: justify;
+    padding: 1em;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+h1 {
+    color: black;
+    background-color: var(--tittle-bg-color);
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0.5em 1em;
+}
+
+h2 {
+    color: var(--color-orange);
+}
+
+h3{
+    color: var(--color-green);
+}
+
+#mealsDiv {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1.5em; /* Add consistent spacing between items */
+    padding-top: 2em; /* Add breathing room above the meals */
+}
+
+.meal {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    border: 2px var(--accessibility-border-color) solid;
+    box-shadow: 0 5px 5px var(--box-shadow-color); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform effect on hover */
+    cursor: pointer;
+    text-align: center; /* Center-align text for a neat look */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: stretch; /* Ensure children expand in width */
+}
+
+.meal:hover {
+    transform: scale(1.05); /* Slight zoom-in effect */
+    box-shadow: 0 4px 10px var(--box-shadow-color); /* Enhance shadow on hover */
+}
+
+.meal h3 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 1.2em; /* Adjusted font size */
+    color: var(--color-green); /* Ensure consistency in color */
+}
+
+.meal > img {
+    border-radius: 10px;
+    max-width: 100%; /* Ensure image fits inside container */
+    height: auto;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style: none;
+    padding: 1em;
+    margin: 0;
+}
+
+.ingredient {
+    position: relative;
+    margin: 0.5em 0; /* Add spacing between ingredients */
+    padding: 0.2em 0.5em; /* Add slight padding for spacing */
+    background-color: var(--bg-light-orange);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth color changes */
+}
+
+.ingredient:hover {
+    background-color: var(--color-orange); /* Highlight on hover */
+    color: var(--color-white); /* Adjust text color for contrast */
+}
+
+.ingredient:hover > img {
+    display: block;
+}
+
+.ingredient > img {
+    display: none;
+    position: absolute;
+    top: -1.5em; /* Adjust position for better visibility */
+    right: 0.5em;
+    border-radius: 10px;
+    border: 1px solid var(--color-gray);
+    width: 10em;
+    background-color: var(--color-white);
+    box-shadow: 0 2px 5px var(--box-shadow-color); /* Slight shadow for a polished feel */
+    z-index: 10;
+}
+
+
+
+/* Text input and select styles */
+input[type="text"],
+select {
+    box-sizing: border-box;
+    width: 100%; /* Full width for better responsiveness */
+    padding: 0.8em 1em; /* Internal padding for comfortable interaction */
+    border: 1px solid var(--color-gray); /* Neutral border color */
+    border-radius: 5px; /* Rounded corners for consistency */
+    background-color: var(--color-white); /* Clean, consistent background */
+    color: var(--color-dark-gray); /* Neutral text color */
+    font-family: 'Open Sans', sans-serif; /* Ensure consistent typography */
+    font-size: 1em; /* Readable font size */
+    box-shadow: inset 0 1px 3px var(--box-shadow-color); /* Subtle inner shadow */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+/* Input and select focus styles */
+input[type="text"]:focus,
+select:focus {
+    border-color: var(--color-green); /* Highlight border in green */
+    outline: none; /* Remove default browser outline */
+    box-shadow: 0 0 4px var(--color-green); /* Subtle glow effect */
+}
+
+/* Placeholder styles for inputs */
+input::placeholder {
+    color: var(--color-gray); /* Use neutral gray for placeholder text */
+    font-style: italic; /* Italic style for differentiation */
+}
+
+/* Styling for disabled inputs and selects */
+input:disabled,
+select:disabled {
+    background-color: var(--bg-light-green); /* Light background for disabled state */
+    color: var(--color-gray); /* Dull text for disabled elements */
+    cursor: not-allowed; /* Show proper cursor */
+}
+
+/* Select dropdown options */
+select {
+    appearance: none; /* Removes default dropdown arrow for custom styles */
+    background-repeat: no-repeat;
+    background-position: right 1em center; /* Position the icon */
+    background-size: 1em; /* Icon size */
+}
+
+/* Styling for hover and active states */
+input[type="text"]:hover,
+select:hover {
+    border-color: var(--color-orange); /* Orange border on hover */
+    box-shadow: 0 0 4px var(--color-orange); /* Subtle glow effect on hover */
+    cursor: pointer; /* Pointer cursor for engagement */
+}
+
+/* Optional style for grouped layouts (e.g., form groups) */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em; /* Add spacing between label and input */
+    margin-bottom: 1em; /* Add bottom spacing between form elements */
+}
+
+label {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: var(--color-dark-gray); /* Neutral text color matching theme */
+}
+
+button {
+    width: 9em;
+    padding: 0.8em 1.5em; /* Comfortable padding for the button */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners for consistency */
+    background-color: var(--color-green); /* Primary button background */
+    color: var(--color-white); /* Text color for contrast */
+    font-family: 'Open Sans', sans-serif; /* Ensure consistent typography */
+    font-size: 1em; /* Readable font size */
+    font-weight: bold; /* Emphasize the text */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    box-shadow: 0 2px 5px var(--box-shadow-color); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+}
+
+button:hover {
+    background-color: var(--color-orange); /* Change to orange on hover */
+    transform: scale(1.05); /* Slight zoom-in */
+    box-shadow: 0 3px 8px var(--box-shadow-color); /* Enhance shadow on hover */
+}
+
+button:active {
+    background-color: var(--color-dark-gray); /* Darker color on active press */
+    transform: scale(1); /* Return to original size */
+}
+
+button:disabled {
+    background-color: var(--bg-light-green); /* Light background for disabled state */
+    color: var(--color-gray); /* Dull text for disabled button */
+    cursor: not-allowed; /* Show proper cursor */
+    box-shadow: none; /* Remove shadow */
+}

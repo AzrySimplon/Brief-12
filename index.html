@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="src/style.css">
+</head>
+
+<body>
+<main>
+    <header>
+        <button id="theme">Change Theme</button>
+        <h1>KekebonKekepabon</h1>
+        <img src="public/logo.png" alt="logo">
+    </header>
+    <section>
+        <h2>Find the best meal by choosing one filter criteria</h2>
+        <label for="ingredient">Enter an ingredient</label>
+        <input type="text" name="ingredient" id="ingredient">
+
+        <label for="category">Select a category</label>
+        <select name="category" id="category">
+        </select>
+
+
+        <label for="country">Select a country</label>
+        <select name="country" id="country">
+        </select>
+    </section>
+
+    <h2>Meals Selection</h2>
+    <div id="mealsDiv">
+    </div>
+
+    <script src="src/main.js" defer></script>
+</main>
+</body>
+</html>
